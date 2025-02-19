@@ -9,11 +9,15 @@ Try it: https://dinoosauro.github.io/clock-picture-in-picture/
 
 At the top of the page you can see the clock video, with all of the customization options applied. You also have a button that'll automatically put your video into Picture-in-Picture move. If the video has stopped, click on the underlined "here" to start it.
 ## Basic video customization
-<img width="655" alt="immagine" src="https://github.com/Dinoosauro/clock-picture-in-picture/assets/80783030/b7518448-7b68-42a7-91fb-3dcb23fe58db">
+![image](https://github.com/user-attachments/assets/b89cd6f3-5be6-4ee6-9b76-13e0e2aa13f9)
 
-You can change the text font, the text color, the text size, the background color and also apply some styles to the text (underline, italic, bold). If you want, you can also add a custom picture as the clock background. Don't worry, everything will always stay on your device, and your image will be stored only locally on your device. 
+You can change the text font, the text color, the text size, the background color and also apply some styles to the text (underline, italic, bold). If you want, you can also add a custom picture as the clock background. Don't worry, everything will always stay on your device, and your image will be stored only locally on your device. If you want, you can also change where the date is placed.
 
-You can also choose to show the date in the video. You'll be able to choose the placement (top/bottom left/center/right) of the date, and the pixels of the text.
+## Date and timer
+![image](https://github.com/user-attachments/assets/5fa47fd8-1926-4e45-89dd-f8835b9b35c1)
+
+
+You can also choose to show the date in the video. You'll be able to choose the placement (top/center/bottom left/center/right) of the date, and the pixels of the text. If you want to know how many hours/minutes/seconds still need to pass before reaching a date, you can add a timer, by putting the time in the `HH:mm:ss` format. You can change the position and the size of the timer too.
 
 ## Export clock
 ### Image
