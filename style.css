@@ -19,15 +19,12 @@ body {
     border: 2px solid var(--text);
 }
 
-#clockSettings>div, #exportContainer > div > div, #advancedSettings > div {
+.mainContainer > div, .mainExportContainer > div > div {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     overflow: auto;
-}
-
-#clockSettings>div>*, #exportContainer > div > div > *, #advancedSettings > div > * {
-    margin-right: 10px;
+    gap: 10px
 }
 
 video {
@@ -37,6 +34,14 @@ video {
     max-width: -moz-available;
     width: -webkit-fill-available;
     width: -moz-available;
+}
+
+.videoLeft {
+    top: 10px;
+    left: 10px;
+    max-width: 50vw;
+    position: fixed;
+    z-index: 2;
 }
 
 input:not([type=color]), select {
@@ -100,7 +105,6 @@ input[type="checkbox"] {
     max-height: 20px;
     border: 2px solid var(--accent);
     border-radius: 4px;
-    margin-right: 10px;
     cursor: pointer;
     position: relative;
 }

@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="manifest" href="./manifest.json"/>
-    <link rel="apple-touch-icon" href="./assets/icon.png"/>
-    <meta name="apple-mobile-web-app-status-bar" content="#201f1f"/>
-    <meta name="theme-color" content="#2f79c3"/>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./assets/icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#201f1f" />
+    <meta name="theme-color" content="#2f79c3" />
     <link rel="icon" type="image/x-icon" href="./assets/icon.svg">
 
     <title>ClockPiP</title>
@@ -17,57 +17,88 @@
 
 <body>
     <div style="margin: 0px 5px">
-    <div style="display: flex; align-items: center;">
-        <img height="64" width="64" data-img="icon">
-        <h1 style="margin-left: 10px;">Clock Picture-in-Picture</h1>
-    </div>
-    <i>Show the current clock in Picture-in-Picture mode</i><br><br>
-    <video autoplay controls id="showVideo"></video>
-    <l>If you aren't seeing anything, or the video has stopped, please click on the webpage <span
-            id="forcePlay">(here!)</span> to make the video load.</l><br><br>
-    <button id="enablePip" style="margin-right: 5px;">Go into Picture-in-Picture (or right click the video
-        above)</button>
+        <header>
+            <div style="display: flex; align-items: center;">
+                <img height="64" width="64" data-img="icon">
+                <h1 style="margin-left: 10px;">Clock Picture-in-Picture</h1>
+            </div>
+            <i>Show the current clock in Picture-in-Picture mode</i><br><br>
+        </header>
+        <video autoplay controls id="showVideo"></video>
+        <l>If you aren't seeing anything, or the video has stopped, please click on the webpage <span
+                id="forcePlay">(here!)</span> to make the video load.</l><br><br>
+        <button id="enablePip" style="margin-right: 5px;">Go into Picture-in-Picture (or right click the video
+            above)</button>
     </div>
     <br><br>
     <div id="containerContainer">
-        <div class="optionContainer" id="clockSettings">
+        <div class="optionContainer mainContainer">
             <h2>Customize clock:</h2>
             <div>
-                <img data-img="textsize" width="24" height="24"><label for="fontSize">Font size (in
-                    pixels):</label><input type="number" data-canvasrefresh data-save="fontsize" id="fontSize" value="72">
+                <img data-img="textsize" width="24" height="24">
+                <label>Put the clock in the
+                    <select style="width: auto;" id="clockHeight" data-canvasrefresh data-save="clockheight"
+                        data-cornerfill="y" data-cornerdefault="center">
+                    </select><select style="width: auto;" id="clockWidth" data-canvasrefresh data-save="clockwidth"
+                        data-cornerfill="x" data-cornerdefault="center">
+                    </select> part of the screen with <input type="number" data-canvasrefresh data-save="fontsize"
+                        id="fontSize" value="72" style="width: 55px;"> px</label></label>
             </div>
             <div>
-                <img data-img="font" width="24" height="24"><label for="font">Font:</label><input data-canvasrefresh type="text"
-                    data-save="font" id="font" value="Work Sans"><input data-canvasrefresh type="checkbox" id="bold"
-                    data-save="bold"><label for="bold">Bold</label><input data-canvasrefresh type="checkbox" id="italic"
-                    data-save="italic"><label for="italic">Italic</label><input data-canvasrefresh type="checkbox" id="underline"
-                    data-save="underline"><label for="underline">Underline</label>
+                <img data-img="font" width="24" height="24"><label for="font">Font:</label><input data-canvasrefresh
+                    type="text" data-save="font" id="font" value="Work Sans"><input data-canvasrefresh type="checkbox"
+                    id="bold" data-save="bold"><label for="bold">Bold</label><input data-canvasrefresh type="checkbox"
+                    id="italic" data-save="italic"><label for="italic">Italic</label><input data-canvasrefresh
+                    type="checkbox" id="underline" data-save="underline"><label for="underline">Underline</label>
             </div>
             <div>
                 <img data-img="backgroundcolor" width="24" height="24"><label for="backgroundColor">Background
-                    color:</label><input data-canvasrefresh data-save="bcolor" type="color" id="backgroundColor" value="#333333">
+                    color:</label><input data-canvasrefresh data-save="bcolor" type="color" id="backgroundColor"
+                    value="#333333">
             </div>
             <div>
                 <img data-img="textcolor" width="24" height="24"><label for="textColor">Text color:</label><input
                     data-save="tcolor" type="color" id="textColor" value="#f0f0f0">
             </div>
             <div>
-                <input type="checkbox" id="showDate" data-canvasrefresh data-save="showdate"><label for="showDate">Show the date in the <select style="width: auto;" id="heightLocation"data-canvasrefresh data-save="heightlocation">
-                <option value="top">top</option>
-                <option value="bottom" selected>bottom</option>
-            </select><select style="width: auto;" id="widthLocation" data-canvasrefresh data-save="widthlocation">
-            <option value="left">left</option>
-            <option selected value="center">center</option>
-            <option value="right">right</option>
-        </select> part of the screen with <input type="number" data-canvasrefresh id="dateSize" style="width: 55px;" value="55" data-save="datesize"> px</label>
-            </div>
-            <div>
                 <button id="addBackgroundImg">Use a background image</button><button id="removeBackgroundImg">Remove the
                     background image</button>
             </div>
-            <i>Want to apply quick edits to the image? Try <a href="https://quickimg-editor.netlify.app/">QuickImg Editor</a>, and export the image from the "Photo settings" tab.</i>
+
         </div>
-        <div class="optionContainer" id="exportContainer">
+        <div class="optionContainer mainContainer">
+            <h2>Date:</h2>
+            <div>
+                <input type="checkbox" id="showDate" data-canvasrefresh data-save="showdate"><label for="showDate">Show
+                    the date in the <select style="width: auto;" id="heightLocation" data-canvasrefresh
+                        data-save="heightlocation" data-cornerfill="y" data-cornerdefault="bottom">
+                    </select><select style="width: auto;" id="widthLocation" data-canvasrefresh
+                        data-save="widthlocation" data-cornerfill="x" data-cornerdefault="center">
+                    </select> part of the screen with <input type="number" data-canvasrefresh id="dateSize"
+                        style="width: 55px;" value="55" data-save="datesize"> px</label>
+            </div>
+
+        </div>
+        <div class="optionContainer mainContainer">
+            <h2>Timer:</h2>
+            <div>
+                <input type="checkbox" id="enableTimer" data-canvasrefresh data-save="showtimer"><label
+                    for="enableTimer">Calculate how long the distance is between now and this time
+                    (HH:mm:ss): <input type="time" step="1" id="timerHour" data-canvasrefresh
+                        data-save="timerHour"></label>
+            </div>
+            <div>
+                <img data-img="timer" width="24" height="24">
+                <label>Put the timer in the
+                    <select style="width: auto;" id="timerHeight" data-canvasrefresh data-save="timerheight"
+                        data-cornerfill="y" data-cornerdefault="top">
+                    </select><select style="width: auto;" id="timerWidth" data-canvasrefresh data-save="timerwidth"
+                        data-cornerfill="x" data-cornerdefault="center">
+                    </select> part of the screen with <input type="number" data-canvasrefresh id="timerSize"
+                        style="width: 55px;" value="55" data-save="timersize"> px</label></label>
+            </div>
+        </div>
+        <div class="optionContainer mainExportContainer">
             <h2>Export clock:</h2>
             <select id="exportImg">
                 <option selected value="img">Export as an image</option>
@@ -109,7 +140,7 @@
             </div><br><br>
             <a id="downloadRestart" style="display: none;">Restart download</a>
         </div>
-        <div class="optionContainer" id="advancedSettings">
+        <div class="optionContainer mainContainer">
             <h2>Advanced settings:</h2>
             <div>
                 <img data-img="vidresize" width="24" height="24">
@@ -117,8 +148,14 @@
                     type="number" id="canvasHeight" value="1080">
             </div>
             <div>
-                <input type="checkbox" id="quickUpdate" data-save="quickupdate"><label for="quickUpdate">Update as quickly as possible the clock when a minute passes</label>
+                <input type="checkbox" id="quickUpdate" data-save="quickupdate"><label for="quickUpdate">Update as
+                    quickly as possible the clock when a minute passes</label>
             </div>
+            <div>
+                <input type="checkbox" id="alwaysShowVideo" data-save="alwaysshowvideo"><label
+                    for="alwaysShowVideo">Keep the video visibile when scrolling the page</label>
+            </div>
+
             <div>
                 <button style="width: 100%;" id="deviceWidth">Use device width/height</button>
                 <button style="width: 100%;" id="changeTheme">Change theme</button>
@@ -131,12 +168,14 @@
                 content (but shouldn't harm your device). Restore the normal page by adding "#noextcss" at the end of
                 this webpage's URL and refreshing the page.</i>
         </div>
-        <div class="optionContainer">
+        <div class="optionContainer mainContainer">
             <h2>Credits:</h2>
             <l>Icons provided by Microsoft's Fluent UI Icons, published under the <a
                     href="https://github.com/microsoft/fluentui-system-icons">MIT License</a></l><br><br>
             <l>The webpage icon was made using Bing Image Creator, powered by DALL-E 3</l><br><br>
-            <i>ClockPiP version <span id="version">1.0.0</span></i>
+            <i>ClockPiP version <span id="version">1.0.0</span>. <a
+                    href="http://github.com/Dinoosauro/clock-picture-in-picture" target="_blank">View source
+                    code</a></i>
         </div>
     </div>
     <script src="./script.js"></script>
