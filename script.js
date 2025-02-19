@@ -33,7 +33,6 @@
         return `${document.getElementById("bold").checked ? "bold " : ""}${document.getElementById("italic").checked ? "italic " : ""}${document.getElementById(sizeRef).value}px ${document.getElementById("font").value}`;
     }
     function getDrawingCoords(type, isHeight, string, context) {
-        console.log(context.measureText(string));
         const prop = isHeight ? "height" : "width";
         const proportion = isHeight ? 8 : 4;
         switch (type) {
