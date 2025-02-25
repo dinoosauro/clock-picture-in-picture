@@ -21,7 +21,7 @@
         };
         registerServiceWorker();
     }
-    let appVersion = "1.2.0";
+    let appVersion = "1.2.1";
     fetch("./clockpip-updatecode", { cache: "no-store" }).then((res) => res.text().then((text) => { if (text.replace("\n", "") !== appVersion) if (confirm(`There's a new version of ClockPiP. Do you want to update? [${appVersion} --> ${text.replace("\n", "")}]`)) { caches.delete("clockpip-cache"); location.reload(true); } }).catch((e) => { console.error(e) })).catch((e) => console.error(e));
     document.getElementById("version").textContent = appVersion;
     let context = canvas.getContext("2d");
@@ -39,7 +39,8 @@
             case "left": case "top":
                 return canvas[prop] * proportion / 100;
             case "center":
-                return ((canvas[prop] / 2) - (context.measureText(string)[prop === "width" ? "width" : "actualBoundingBoxDescent"] / 2));
+                const measure = context.measureText(string);
+                return ((canvas[prop] / 2) - ((measure[prop === "width" ? "width" : "actualBoundingBoxDescent"] - (prop === "width" ? 0 : measure.actualBoundingBoxAscent)) / 2));
             case "right": case "bottom":
                 return (canvas[prop] - (canvas[prop] * proportion / 100) - context.measureText(string)[prop === "width" ? "width" : "actualBoundingBoxDescent"])
         }

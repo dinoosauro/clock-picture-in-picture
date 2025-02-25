@@ -30,10 +30,7 @@ body {
 video {
     border: 2px solid var(--text);
     border-radius: 8px;
-    max-width: -webkit-fill-available;
-    max-width: -moz-available;
-    width: -webkit-fill-available;
-    width: -moz-available;
+    width: calc(100vw - 60px);
 }
 
 .videoLeft {
